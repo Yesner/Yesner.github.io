@@ -1,259 +1,620 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Data Analysis website providing insights, tools, and resources for data enthusiasts. Explore my portfolio, skills, and courses to enhance your data analysis knowledge.">
-    <link rel="stylesheet" href="Style/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532637006302438"
-     crossorigin="anonymous"></script>
-    <title>Data Analysis</title>
+    <title>Yesner Salgado - Especialista en Análisis de Datos e IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#0a192f',
+                        'light-navy': '#112240',
+                        'lightest-navy': '#233554',
+                        'slate': '#8892b0',
+                        'light-slate': '#a8b2d1',
+                        'lightest-slate': '#ccd6f6',
+                        'white': '#e6f1ff',
+                        'green': '#64ffda',
+                        'blue': '#57cbff',
+                    },
+                    fontFamily: {
+                        'sf-mono': ['SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'monospace'],
+                        'calibre': ['Calibre', 'Inter', 'San Francisco', 'SF Pro Text', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        /* Fuentes y estilos personalizados */
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            color: #8892b0;
+            scroll-behavior: smooth;
+        }
+        
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        
+        /* Efecto de subrayado personalizado */
+        .link-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #64ffda;
+            transition: width 0.25s ease-out;
+        }
+        
+        .link-underline:hover::after {
+            width: 100%;
+        }
+        
+        /* Estilo para las secciones */
+        section {
+            padding: 100px 0;
+        }
+        
+        /* Estilo para las tarjetas de proyectos */
+        .project-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-7px);
+        }
+        
+        /* Ajuste para la foto de perfil */
+        .profile-img {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+        
+        .profile-img:hover {
+            filter: grayscale(0%);
+        }
+        
+        /* Efectos de gradiente para elementos de IA */
+        .ai-gradient {
+            background: linear-gradient(90deg, #64ffda 0%, #57cbff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Efecto de partículas para el fondo */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#Home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#About">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Resume">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Skill">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Portfolio">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Courses">Courses</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Contact">Contact</a>
-                </li>
-            </ul>
+<body class="bg-navy text-slate">
+    <!-- Efecto de partículas para el fondo -->
+    <div id="particles-js"></div>
+
+    <!-- Barra de navegación lateral izquierda -->
+    <div class="fixed left-10 bottom-0 w-10 hidden md:block z-50">
+        <div class="flex flex-col items-center space-y-6 after:content-[''] after:block after:w-px after:h-24 after:bg-light-slate">
+            <a href="https://github.com/yesner" target="_blank" class="text-light-slate hover:text-green transition-colors duration-300">
+                <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yesner-salgado/" target="_blank" class="text-light-slate hover:text-green transition-colors duration-300">
+                <i class="fab fa-linkedin-in text-xl"></i>
+            </a>
+            <a href="mailto:yesnersalgado@gmail.com" class="text-light-slate hover:text-green transition-colors duration-300">
+                <i class="fas fa-envelope text-xl"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Barra de navegación lateral derecha -->
+    <div class="fixed right-10 bottom-0 w-10 hidden md:block z-50">
+        <div class="flex flex-col items-center">
+            <a href="mailto:yesnersalgado@gmail.com" class="text-light-slate hover:text-green transition-colors duration-300 mb-6 writing-vertical code-font text-sm">
+                yesnersalgado@gmail.com
+            </a>
+            <div class="content-[''] block w-px h-24 bg-light-slate"></div>
+        </div>
+    </div>
+
+    <!-- Navegación principal -->
+    <nav class="fixed top-0 w-full bg-navy bg-opacity-90 backdrop-blur-sm z-50 py-5">
+        <div class="container mx-auto px-8 md:px-20 flex justify-between items-center">
+            <a href="#" class="text-green text-2xl font-bold">
+                Yesner Salgado
+            </a>
+            <div class="hidden md:flex space-x-10">
+                <a href="#about" class="code-font text-sm text-lightest-slate hover:text-green transition-colors duration-300 flex items-center">
+                    Sobre mí
+                </a>
+                <a href="#skills" class="code-font text-sm text-lightest-slate hover:text-green transition-colors duration-300 flex items-center">
+                    Habilidades
+                </a>
+                <a href="#projects" class="code-font text-sm text-lightest-slate hover:text-green transition-colors duration-300 flex items-center">
+                    Proyectos
+                </a>
+                <a href="#contact" class="code-font text-sm text-lightest-slate hover:text-green transition-colors duration-300 flex items-center">
+                    Contacto
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-light-slate focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="header" id="Home">
-            <h1>Explore the world of data and make informed decisions</h1>
-            <h3>Would you like to analyze your data and make appropriate decisions for your business?</h3>
-            <br>
-            <button><a href="#Portfolio">My Portfolio</a></button>
-        </div>
-        <div class="main">
-            <h2 id="About">About</h2>
-            <p>📊 Experienced Data Analyst | SQL | Python | Databases 📈</p>
-            <p>Passionate about deciphering the stories hidden within data, I am a Data Analyst with a keen eye for detail and a strong foundation in data analysis, SQL, Python programming, and database management.</p>
-            <p>🔍 My expertise lies in transforming raw data into actionable insights. With a knack for querying and manipulating data using SQL, I uncover patterns, trends, and opportunities that drive informed decision-making.</p>
-            <p>💻 Proficient in Python, I leverage its power to clean, preprocess, and analyze data efficiently. From predictive modeling to data visualization, I harness Python's versatility to make data come alive.</p>
-            <p>🗄️ Databases are my playground. I work with structured and unstructured data, ensuring data integrity and reliability. Whether it's SQL databases like MySQL or NoSQL databases like MongoDB, I'm at home in the world of data storage.</p>
-            <p>📊 Data is more than just numbers; it's the key to unlocking business potential. I thrive on translating data into actionable recommendations that fuel growth and innovation.</p>
-            <p>🤝 Let's connect! Whether you're looking for a Data Analyst to drive data-driven decisions or you simply want to discuss all things data, I'm here to connect and collaborate.</p>
-            <a href="https://www.linkedin.com/in/yesner-salgado/" target="_blank">
-                <button>Connect on LinkedIn</button>
+
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="fixed inset-0 bg-light-navy z-40 flex flex-col items-center justify-center space-y-10 hidden">
+        <button id="close-menu" class="absolute top-5 right-5 text-light-slate text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#about" class="text-2xl text-lightest-slate hover:text-green transition-colors duration-300">Sobre mí</a>
+        <a href="#skills" class="text-2xl text-lightest-slate hover:text-green transition-colors duration-300">Habilidades</a>
+        <a href="#projects" class="text-2xl text-lightest-slate hover:text-green transition-colors duration-300">Proyectos</a>
+        <a href="#contact" class="text-2xl text-lightest-slate hover:text-green transition-colors duration-300">Contacto</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20 pb-32">
+        <div class="container mx-auto px-8 md:px-20">
+            <p class="text-green code-font mb-5 animate-fade-in">Hola, mi nombre es</p>
+            <h1 class="text-5xl md:text-7xl font-bold text-lightest-slate mb-5 animate-fade-in delay-100">Yesner Salgado.</h1>
+            <h2 class="text-4xl md:text-6xl font-bold text-light-slate mb-6 animate-fade-in delay-200">Especialista en <span class="ai-gradient">Análisis de Datos e IA</span>.</h2>
+            <p class="max-w-lg text-light-slate mb-10 animate-fade-in delay-300">
+                Transformo datos en insights valiosos mediante análisis avanzado, machine learning e inteligencia artificial para impulsar la toma de decisiones empresariales.
+            </p>
+            <a href="#projects" class="border border-green text-green px-6 py-4 code-font text-sm rounded hover:bg-green-tint transition-colors duration-300 animate-fade-in delay-400">
+                Ver mis proyectos
             </a>
+        </div>
+    </section>
 
-            <br>
-            <br>
-            <h2 id="Resume">Resume</h2>
-
-            <div class="resume-section">
-                <div class="certifications">
-                    <h3>Certifications</h3>
-                    <li><a href="https://learn.microsoft.com/api/credentials/share/es-mx/yesnersalgado-7695/D622E3E937681FBB?sharingId=177F98AF5F014FD3" target="_blank">📜Power BI Data Analyst Associate</a></li>
-                    <li><a href="https://www.datacamp.com/certificate/DS0025494743240" target="_blank">📜Data Scientist Professional</a></li>
-                    <li><a href="https://www.datacamp.com/certificate/DA0022860250300" target="_blank">📜Data Analyst Professional</a></li>
-                    <li><a href="https://www.datacamp.com/certificate/DEA0012243359368" target="_blank">📜Data Engineer Associate</a></li>
-                    <li><a href="https://images.credential.net/embed/wxew51wh.png" target="_blank">📜Professional Data Engineer</a></li>
-                    <li><a href="https://google.accredible.com/e583cc1a-8d80-4a69-9d31-ab7c989eb6e4" target="_blank">📜Professional Cloud Database Engineer</a></li>
-                    <li><a href="https://www.datacamp.com/certificate/SQA0011165420216" target="_blank">📜Associate SQL</a></li>
-                    <li><a href="https://www.credly.com/badges/e483ea54-967e-45ef-807f-6916caf2a608?source=linked_in_profile" target="_blank">📜Microsoft Excel Expert (Microsoft 365 Apps And Office 2019)</a></li>
-                    <li><a href="https://www.cloudskillsboost.google/public_profiles/7493bd40-3fea-410b-9268-3f7e1d450ed7" target="_blank">📜Badge Google</a></li>
-
-                
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-8 md:px-20">
+            <div class="flex items-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-lightest-slate whitespace-nowrap code-font">
+                    Sobre mí
+                </h2>
+                <div class="ml-5 w-full md:w-1/3 h-px bg-lightest-navy"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
+                <div class="md:col-span-3">
+                    <p class="mb-5">
+                        Soy <span class="text-green">Yesner Salgado</span>, especialista en análisis de datos e inteligencia artificial con experiencia en transformación digital. Mi pasión es descubrir patrones ocultos en los datos y crear soluciones basadas en IA que generen valor real para las organizaciones.
+                    </p>
+                    <p class="mb-5">
+                        Me especializo en el desarrollo de pipelines de datos, modelos predictivos y dashboards interactivos que facilitan la toma de decisiones estratégicas. Mi enfoque combina conocimientos técnicos avanzados con una comprensión profunda de las necesidades empresariales.
+                    </p>
+                    <p class="mb-5">
+                        He trabajado en proyectos que involucran análisis predictivo, procesamiento de lenguaje natural, computer vision y sistemas de recomendación, siempre con el objetivo de convertir datos en insights accionables.
+                    </p>
+                    <p class="mb-5">
+                        Algunas tecnologías con las que trabajo:
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 code-font text-sm max-w-xs">
+                        <div class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Python & R
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Machine Learning
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green mr-2">▹</span> SQL & NoSQL
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green mr-2">▹</span> TensorFlow & PyTorch
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Power BI & Tableau
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green mr-2">▹</span> AWS & Azure
+                        </div>
+                    </div>
                 </div>
-                <div class="education">
-                    <h3>Education</h3>
-                    <li>📕System's Engineer - UCYT</li>
-                    <li>📕Master Business Administration - Isabel I</li>
-                   <li>📕Posgraduate Degree Of Artificial Intelligence - UNI</li>
-                   <li>📕Web Development - UNAN</li>
+                <div class="md:col-span-2 relative">
+                    <div class="w-3/4 mx-auto">
+                        <div class="aspect-square rounded-lg overflow-hidden border-2 border-green relative z-10">
+                            <img src="img/perfil.jpg" alt="Yesner Salgado" class="w-full h-full object-cover profile-img">
+                        </div>
+                        <div class="absolute -inset-5 border-2 border-green rounded-lg opacity-20"></div>
+                    </div>
                 </div>
             </div>
-
-            <br>
-
-
-            <h2 id="Skill">Services</h2>
-            <p>I provide various data analysis services including data cleaning, data visualization, and predictive modeling.</p>
-            <br>
-
-            <h2 id="Portfolio">Portfolio</h2>
-   
-            <ul>
-                <li>
-                    <h3> Python</h3>
-                    <ul>
-                        <li><a href="https://app.datacamp.com/workspace/w/864b7df5-69c8-48b0-8278-906a1598c449/edit" target="_blank">🔗Consolidating Employee Data</a></li>
-                        <li><a href="https://app.datacamp.com/workspace/w/c73b1ac1-792e-4f72-85c7-41e585d3845e/edit" target="_blank">🔗Analyzing River Thames Water Levels</a></li>
-                        <li><a href="https://app.datacamp.com/workspace/w/7598ad25-093a-48c8-b6ba-edcef61a163e/edit"target="_blank">🔗Designing a Bank Marketing Database</a></li>
-                        <li><a href="https://app.datacamp.com/workspace/w/bdc421d7-b419-4ab8-8659-fb48b9f51912/edit" target="_blank">🔗Customer Analytics - Preparing Data for Modeling</a></li>
-                        <li><a href="https://app.datacamp.com/workspace/w/7ec5b6f7-78b8-451f-90bb-07c45b726e0e/edit" target="_blank">🔗Optimizing Online Sports Revenue</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_data-analysis-activity-7163703020323610624-2fQF?utm_source=share&utm_medium=member_desktop" target="_blank">🔗Marketing Analysis 01</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_data-science-activity-7165858048597565440-3jmf?utm_source=share&utm_medium=member_desktop" target="_blank">🔗Marketing Analysis 02</a></li>
-
-
-                    </ul>
-                </li>
-                <br>
-                <li>
-                    <h3>Power BI</h3>
-                    <ul>
-                        <li><a href="https://app.powerbi.com/view?r=eyJrIjoiMTlhMjFlOTgtNmY0MC00YmQ0LWIwNTEtMTYwZjljYTc0ZmU5IiwidCI6ImY1ZWU0MGJlLTM5MjQtNDdmYy1iMTdiLTJhMzY2OWI5NDQ4OSIsImMiOjZ9" target="_blank">🔗Human Resources Analysis</a></li>
-                        <li><a href="https://app.powerbi.com/view?r=eyJrIjoiYzg4OWJhZWYtNjUyNi00ZWY5LWFmYTgtZTdlNzBmZjQxMTcwIiwidCI6ImY1ZWU0MGJlLTM5MjQtNDdmYy1iMTdiLTJhMzY2OWI5NDQ4OSIsImMiOjZ9" target="_blank">🔗Financial Analysis</a></li>
-                        <li><a href="https://app.powerbi.com/view?r=eyJrIjoiYjJiNTFjMDQtZDc4Ny00M2E2LTk0MTEtYTM0OWQ0ZDdlZjYxIiwidCI6ImY1ZWU0MGJlLTM5MjQtNDdmYy1iMTdiLTJhMzY2OWI5NDQ4OSIsImMiOjZ9" target="_blank">🔗Inventory Analysis</a></li>
-                        
-                    </ul>
-                </li>
-
-                <br>
-                <li>
-                    <h3>SQL</h3>
-                    <ul>
-                        <li><a href="https://app.datacamp.com/workspace/w/04fcdd45-aac0-4a63-b137-5a49a65b9e02/edit" target="_blank">🔗Analyzing Industry Carbon Emissions</a></li>
-                        <li><a href="https://app.datacamp.com/workspace/w/71a65a09-006e-4ddd-8be5-f6ed275aefc4/edit" target="_blank">🔗Analyzing Motorcycle Sales</a></li>
-                        <li><a href="https://app.datacamp.com/workspace/w/93d50bf9-bd55-455b-a390-579bb0f1bc12/edit" target="_blank">🔗Analyzing Unicorn Companies</a></li>
-                        <li><a href="https://app.datacamp.com/workspace/w/422a38e0-4013-42d5-baca-d07ee5360d15/edit" target="_blank">🔗Analyzing Student's Mental Health</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_listo-para-el-reto-activity-7168641896079167489-odXq?utm_source=share&utm_medium=member_desktop" target="_blank">🔗Challenge SQL</a></li>
-                    </ul>
-                </li>
-
-                <br>
-
-                <li>
-                    <h3>Excel</h3>
-                    <ul>
-                        <li><a href="https://youtu.be/IOkUvEC6t2k?si=ZOxdb0WooHZ9IMSY target="_blank">🔗Basic Excel</a></li>
-                        <li><a href="https://youtu.be/iH_lLkgSMaU?si=6YUZqs1DAkJGeJyf" target="_blank">🔗Amortization Table - Loan</a></li>
-                        <li><a href="https://www.youtube.com/playlist?list=PLhkTAS5adbEU24v5gah_bOBX_P_1QIFUB" target="_blank">🔗Excel Course</a></li>
-                        <li><a href="https://youtu.be/YHP0frRUp08?si=w3SORPUEkrLo2mIV" target="_blank">🔗Excel Practice 01</a></li>
-                        <li><a href="https://youtu.be/HyrHgE1CeVs?si=IVOYlVCNs8JflrJ6t" target="_blank">🔗Excel Practice 02</a></li>
-                    </ul>
-                </li>
-
-                <br>
-                <li>
-                    <h3>Conferences</h3>
-                    <ul>
-                        <li><a href="https://www.linkedin.com/posts/comunidad-power-bi-panam%C3%A1_powerbi-comunidad-juventud-activity-7157113842689277952-dspZ?utm_source=share&utm_medium=member_desktop" target="_blank">📼Financial Statements With Power BI</a></li>
-                        <li><a href="https://www.linkedin.com/events/predicci-ndesiembradecultivosco7103064822220480513/theater/" target="_blank">📼Predictions With Power BI</a></li>
-                        <li><a href="https://www.linkedin.com/posts/getnerdify_aprendamos-a-depurar-datos-con-python-activity-7100609402600071169-EO2D?utm_source=share&utm_medium=member_desktop" target="_blank">📼Cleaning Data With Python</a></li>
-                        <li><a href="https://www.linkedin.com/posts/gabriel-gomez-547182b7_predicci%C3%B3n-del-tiempo-con-python-y-par%C3%A1metros-activity-7088133431003373568-TbQx?utm_source=share&utm_medium=member_desktop" target="_blank">📼Predictions of Weather with Power BI and Python</a></li>
-                        <li><a href="https://www.linkedin.com/posts/gabriel-gomez-547182b7_an%C3%A1lisis-de-sentimiento-con-python-y-power-activity-7103355144989261824-jNfE?utm_source=share&utm_medium=member_desktop" target="_blank">📼Sentiment Analysis with Power BI and Python</a></li>
-                    </ul>
-                </li>
-
-                <br>
-                <li>
-                    <h3>Post</h3>
-                    <ul>
-                        <li><a href="https://medium.com/@yesnersalgado/are-you-ready-to-be-a-data-analyst-36542a456379" target="_blank">📝Are you ready to be a Data Analyst?</a></li>
-                        <li><a href="https://medium.com/@yesnersalgado/excel-aplicado-a-los-negocios-e0eedce60ee0" target="_blank">📝Excel business</a></li>
-                        <li><a href="https://medium.com/@yesnersalgado/exploratory-analysis-of-data-in-python-c8a45387a126" target="_blank">📝Exploratory analysis of data in python</a></li>
-                        <li><a href="https://medium.com/@yesnersalgado/c%C3%B3mo-realizar-un-pipeline-sencillo-con-python-4b4821d3311a" target="_blank">📝Pipeline with Python</a></li>
-                        <li><a href="https://medium.com/@yesnersalgado/c%C3%B3mo-hacer-predicciones-con-power-bi-y-pycaret-efc10c087cb8" target="_blank">📝Predictions with Power BI and Python</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_sqlserver-sql-analisisdedatos-activity-7045199979233071104-C3H0?utm_source=share&utm_medium=member_desktop" target="_blank">📝Sliding windows SQL</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_bigdata-sql-python-activity-7126608400905326593-2bHa?utm_source=share&utm_medium=member_desktop" target="_blank">📝Pipeline with Parquet File</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_sql-businessintelligence-sqlserver-activity-7111537143373512704-bX5f?utm_source=share&utm_medium=member_desktop" target="_blank">📝Year-over-year growth SQL</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_powerbi-analysis-businessintelligence-activity-7111150540574576640-mD_5?utm_source=share&utm_medium=member_desktop" target="_blank">📝Multidimensional models in Power BI</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_python-dataanalysis-excel-activity-7105737155523551232-FCmg?utm_source=share&utm_medium=member_desktop" target="_blank">📝Excel with Python</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_webscraping-dataanalysis-powerbi-activity-7092309825623056384-D3yp?utm_source=share&utm_medium=member_desktop" target="_blank">📝Web Scraping with Python and Power BI</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_informe-activity-7170870987889041408-CxtB?utm_source=share&utm_medium=member_desktop" target="_blank">📝Report: Financial Statement</a></li>
-
-                    </ul>
-                </li>
-
-                <br>
-
-                <li>
-                    <h3>Project - Data</h3>
-                    <ul>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_powerautomate-microsoft-ai-activity-7188271696255098882-VF98?utm_source=share&utm_medium=member_desktop" target="_blank">📝Extract Information from Ship Containers</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_data-analysis-with-sql-activity-7166635696001118208-XJdB?utm_source=share&utm_medium=member_desktop" target="_blank">📝Data Analysis with SQL</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_data-analysis-with-sql-activity-7166635696001118208-XJdB?utm_source=share&utm_medium=member_desktop" target="_blank">📝Data Science with Python</a></li>
-                        <li><a href="https://www.linkedin.com/posts/yesner-salgado_data-analysis-activity-7163703020323610624-2fQF?utm_source=share&utm_medium=member_desktop" target="_blank">📝Data Analysis with Python</a></li>
-                        <li><a href="https://drive.google.com/file/d/1plKWDKF6Sb9nV9yxdeO171QTUA_Vy-_R/view?usp=sharing" target="_blank">📝Financial Fraud</a></li>
-                        <li><a href="https://github.com/Yesner/automatizacion_python_selenium_tc.git" target="_blank">📝Process Automation: Change monetary</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-
-
-            <h2 id="Courses">Courses</h2>
-
-            <ul>
-                <li>
-                    <h3> Excel</h3>
-                    <ul>
-                        <li><a href="https://www.g-talent.net/products/microsoft-excel-desde-basico-a-avanzado" target="_blank">🔗Microsoft Excel - Desde Básico a Avanzado</a></li>
-                        <p><strong>Acerca de:</strong> Domina desde los fundamentos hasta las técnicas avanzadas de Microsoft Excel, potenciando tus habilidades analíticas y 
-                            de organización de datos con el uso de macros, Power Query y Power Pivot.</p>
-
-                    </ul>
-                </li>
-                <br>
-
-
-
-
-
-        <h2 id="Contact" class="center-text">Contact me</h2>
-        <form action="mailto:yesnersalgado@gmail.com" method="post" enctype="text/plain">
-            <label for="name">Full Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="mail">E-mail:</label><br>
-            <input type="email" id="mail" name="mail"><br>
-            <label for="request">How can I help you?</label><br>
-            <textarea id="request" name="request"></textarea><br>
-            <input type="submit" value="Send">
-        </form>
-
-
-
-
         </div>
-    </div>
-    <div class="footer">
-        <p>© 2024 Data Analysis | Yesner Salgado. All rights reserved.</p>
-    </div>
+    </section>
 
-    <script type="text/javascript">
-        atOptions = {
-            'key' : '5767b9bf13428cf214f38599d5c2af55',
-            'format' : 'iframe',
-            'height' : 300,
-            'width' : 160,
-            'params' : {}
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-light-navy">
+        <div class="container mx-auto px-8 md:px-20">
+            <div class="flex items-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-lightest-slate whitespace-nowrap code-font">
+                    Habilidades
+                </h2>
+                <div class="ml-5 w-full md:w-1/3 h-px bg-lightest-navy"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Análisis de Datos -->
+                <div class="bg-navy p-6 rounded-lg">
+                    <div class="text-green text-3xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-lightest-slate mb-4">Análisis de Datos</h3>
+                    <ul class="code-font text-sm text-slate space-y-2">
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Análisis Exploratorio (EDA)
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Visualización de Datos
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Estadística Aplicada
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Power BI & Tableau
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> SQL Avanzado
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Big Data
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Machine Learning -->
+                <div class="bg-navy p-6 rounded-lg">
+                    <div class="text-green text-3xl mb-4">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-lightest-slate mb-4">Machine Learning</h3>
+                    <ul class="code-font text-sm text-slate space-y-2">
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Modelos Predictivos
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Aprendizaje Supervisado
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Aprendizaje No Supervisado
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Procesamiento de Lenguaje Natural
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Computer Vision
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Deep Learning
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Transformación Digital -->
+                <div class="bg-navy p-6 rounded-lg">
+                    <div class="text-green text-3xl mb-4">
+                        <i class="fas fa-digital-tachograph"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-lightest-slate mb-4">Transformación Digital</h3>
+                    <ul class="code-font text-sm text-slate space-y-2">
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Estrategias Data-Driven
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Automatización de Procesos
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Implementación de IA
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Cloud Computing
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Optimización con Datos
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green mr-2">▹</span> Soluciones Escalables
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-8 md:px-20">
+            <div class="flex items-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-lightest-slate whitespace-nowrap code-font">
+                    Proyectos Destacados
+                </h2>
+                <div class="ml-5 w-full md:w-1/3 h-px bg-lightest-navy"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-16">
+                <!-- Proyecto 1 - Análisis de Datos -->
+                <div class="project-card grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-3 order-2 md:order-1">
+                        <p class="text-green code-font text-sm mb-2">Análisis Predictivo</p>
+                        <h3 class="text-2xl font-bold text-lightest-slate mb-4">Sistema de Predicción de Ventas</h3>
+                        <div class="bg-light-navy rounded-lg p-5 mb-5">
+                            <p class="text-light-slate">
+                                Desarrollo de un modelo predictivo para forecasting de ventas utilizando series de tiempo y machine learning. El sistema permite anticipar demandas futuras con un 92% de precisión, optimizando inventario y recursos.
+                            </p>
+                        </div>
+                        <div class="code-font text-xs text-slate flex flex-wrap gap-4 mb-5">
+                            <span>Python</span>
+                            <span>Prophet</span>
+                            <span>ARIMA</span>
+                            <span>Tableau</span>
+                        </div>
+                        <div class="flex space-x-5">
+                            <a href="https://github.com/Yesner" target="_blank" class="text-lightest-slate hover:text-green transition-colors duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/posts/yesner-salgado_powerbi-ml-streamlit-activity-7021314272202780672-JclU?utm_source=share&utm_medium=member_desktop&rcm=ACoAABJ98BIBihCAFdCRg66H6lfzIsYEhiLSuio" target="_blank" class="text-lightest-slate hover:text-green transition-colors duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 order-1 md:order-2 relative">
+                        <div class="rounded-lg overflow-hidden border-2 border-green relative z-10">
+                            <div class="aspect-video bg-green bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-chart-line text-5xl text-green"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 2 - NLP -->
+                <div class="project-card grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-3 order-2">
+                        <p class="text-green code-font text-sm mb-2">Procesamiento de Lenguaje Natural</p>
+                        <h3 class="text-2xl font-bold text-lightest-slate mb-4">Análisis de Sentimientos en Tiempo Real</h3>
+                        <div class="bg-light-navy rounded-lg p-5 mb-5">
+                            <p class="text-light-slate">
+                                Sistema de análisis de sentimientos que procesa texto en tiempo real desde redes sociales y fuentes de noticias. Clasifica opiniones y detecta tendencias emergentes con técnicas avanzadas de NLP.
+                            </p>
+                        </div>
+                        <div class="code-font text-xs text-slate flex flex-wrap gap-4 mb-5">
+                            <span>Python</span>
+                            <span>NLTK</span>
+                            <span>Transformers</span>
+                            <span>Streamlit</span>
+                        </div>
+                        <div class="flex space-x-5">
+                            <a href="https://github.com/Yesner" target="_blank" class="text-lightest-slate hover:text-green transition-colors duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/posts/yesner-salgado_sentimentanalysis-dataanalysis-machinelearning-activity-7103898089941266432-gjRV?utm_source=share&utm_medium=member_desktop&rcm=ACoAABJ98BIBihCAFdCRg66H6lfzIsYEhiLSuio" target="_blank" class="text-lightest-slate hover:text-green transition-colors duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 order-1 relative">
+                        <div class="rounded-lg overflow-hidden border-2 border-green relative z-10">
+                            <div class="aspect-video bg-green bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-comments text-5xl text-green"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 3 - Computer Vision -->
+                <div class="project-card grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-3 order-2 md:order-1">
+                        <p class="text-green code-font text-sm mb-2">Computer Vision</p>
+                        <h3 class="text-2xl font-bold text-lightest-slate mb-4">Sistema de Reconocimiento de Imágenes</h3>
+                        <div class="bg-light-navy rounded-lg p-5 mb-5">
+                            <p class="text-light-slate">
+                                Modelo de deep learning para clasificación y detección de objetos en imágenes. Implementado con transfer learning y optimizado para alto rendimiento en aplicaciones industriales.
+                            </p>
+                        </div>
+                        <div class="code-font text-xs text-slate flex flex-wrap gap-4 mb-5">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>OpenCV</span>
+                            <span>YOLO</span>
+                        </div>
+                        <div class="flex space-x-5">
+                            <a href="https://github.com/Yesner" target="_blank" class="text-lightest-slate hover:text-green transition-colors duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/posts/yesner-salgado_yolov8-objectdetection-python-activity-7126262447186857988-fj3C?utm_source=share&utm_medium=member_desktop&rcm=ACoAABJ98BIBihCAFdCRg66H6lfzIsYEhiLSuio" target="_blank" class="text-lightest-slate hover:text-green transition-colors duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 order-1 md:order-2 relative">
+                        <div class="rounded-lg overflow-hidden border-2 border-green relative z-10">
+                            <div class="aspect-video bg-green bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-eye text-5xl text-green"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4 - Dashboard -->
+                <div class="project-card grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-3 order-2">
+                        <p class="text-green code-font text-sm mb-2">Visualización de Datos</p>
+                        <h3 class="text-2xl font-bold text-lightest-slate mb-4">Dashboard Interactivo de Business Intelligence</h3>
+                        <div class="bg-light-navy rounded-lg p-5 mb-5">
+                            <p class="text-light-slate">
+                                Plataforma de BI con visualizaciones interactivas y reportes automatizados para seguimiento de KPIs empresariales. Integra múltiples fuentes de datos y permite análisis drill-down.
+                            </p>
+                        </div>
+                        <div class="code-font text-xs text-slate flex flex-wrap gap-4 mb-5">
+                            <span>Power BI</span>
+                            <span>SQL</span>
+                            <span>DAX</span>
+                            <span>Azure</span>
+                        </div>
+                        <div class="flex space-x-5">
+                            <a href="https://github.com/Yesner" target="_blank" class="text-lightest-slate hover:text-green transition-colors duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/posts/yesner-salgado_tableau-dataanalyst-businessintelligence-activity-7123315383209504769-u44k?utm_source=share&utm_medium=member_desktop&rcm=ACoAABJ98BIBihCAFdCRg66H6lfzIsYEhiLSuio" target="_blank" class="text-lightest-slate hover:text-green transition-colors duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 order-1 relative">
+                        <div class="rounded-lg overflow-hidden border-2 border-green relative z-10">
+                            <div class="aspect-video bg-green bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-chart-pie text-5xl text-green"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="https://github.com/Yesner" target="_blank" class="border border-green text-green px-6 py-3 code-font text-sm rounded hover:bg-green-tint transition-colors duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> Ver más proyectos en GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-light-navy">
+        <div class="container mx-auto px-8 md:px-20 text-center">
+            <p class="code-font text-green mb-3">¿Listo para transformar sus datos en insights?</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-lightest-slate mb-5">Ponte en contacto</h2>
+            <p class="max-w-lg mx-auto text-light-slate mb-12">
+                Estoy disponible para proyectos de análisis de datos, implementación de soluciones de IA y estrategias de transformación digital. ¡Hablemos sobre cómo puedo ayudar a tu organización!
+            </p>
+            <a href="mailto:yesnersalgado@gmail.com" class="border border-green text-green px-6 py-4 code-font text-sm rounded hover:bg-green-tint transition-colors duration-300 inline-block">
+                Enviar mensaje
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center code-font text-xs text-slate">
+        <p>Diseñado por Yesner Salgado</p>
+        <p class="mt-2">© 2025 - Especialista en Análisis de Datos e IA</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Inicializar partículas
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#64ffda" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#64ffda",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+        });
+
+        // Funcionalidad para el menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Efecto de revelado al hacer scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
         };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
     </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/5767b9bf13428cf214f38599d5c2af55/invoke.js"></script>
-
-    <script type='text/javascript' src='//pl25410816.profitablecpmrate.com/eb/96/4e/eb964e8ad0bcf5b91180480ca3bd4cec.js'></script>
-
-    <script async="async" data-cfasync="false" src="//pl25410795.profitablecpmrate.com/8414f24f6771ae8b9437c1a2ca03036f/invoke.js"></script>
-<div id="container-8414f24f6771ae8b9437c1a2ca03036f"></div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
